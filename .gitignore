@@ -12,6 +12,7 @@ client/build/
 .env.local
 .env.production
 .env.development
+.env.vercel
 server/.env
 client/.env
 client/.env.local
