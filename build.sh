@@ -1,5 +1,5 @@
 #!/bin/sh
 set -e
 cd client
-npm install
+npm install --include=dev
 npm run build
