@@ -13,7 +13,12 @@ const connectDB = async () => {
 const app = require('../server/server');
 
 // Vercel serverless handler
-module.exports = async (req, res) => {
-  await connectDB();
+module.exports = async function handler(req, res) {
+  try {
+    await connectDB();
+  } catch (err) {
+    console.error('DB connection error:', err.message);
+    return res.status(500).json({ error: 'DB connection failed', detail: err.message });
+  }
   return app(req, res);
 };
